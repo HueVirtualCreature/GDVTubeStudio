@@ -1,0 +1,201 @@
+[gd_scene load_steps=3 format=3 uid="uid://mfdndk0i5gga"]
+
+[ext_resource type="Script" path="res://src/gd_vtube_studio_demo.gd" id="1_85hso"]
+[ext_resource type="PackedScene" uid="uid://dcdkeb27i4anu" path="res://src/gd_vtube_studio.tscn" id="2_f4gn8"]
+
+[node name="GDVtubeStudioDemo" type="Node"]
+script = ExtResource("1_85hso")
+
+[node name="GDVtubeStudio" parent="." instance=ExtResource("2_f4gn8")]
+app_author = "hue_vcreature"
+app_name = "app demo"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "GDTVubeStudio Test Client"
+
+[node name="ControlContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="RequestAPIState" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request API State"
+
+[node name="RequestAuthenticationToken" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Authentication Token"
+
+[node name="RequestAuthentication" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Authentication"
+
+[node name="RequestVTSFolderInfo" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request VTS Folder Info"
+
+[node name="RequestCurrentModel" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Current Model"
+
+[node name="RequestAvailableModels" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Available Models"
+
+[node name="RequestModelLoad" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Model Load"
+
+[node name="RequestMoveModel" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Move Model"
+
+[node name="RequestHotkeysInCurrentModel" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Hotkeys In Current Model"
+
+[node name="RequestHotkeyTrigger" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Hotkey Trigger"
+
+[node name="RequestExpressionState" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Expression State"
+
+[node name="RequestExpressionActivation" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Expression Activation"
+
+[node name="RequestArtMeshList" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Art Mesh List"
+
+[node name="RequestColorTint" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Color Tint"
+
+[node name="RequestSceneColorOverlayInfo" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Scene Color Overlay Info"
+
+[node name="RequestFaceFound" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Face Found"
+
+[node name="RequestInputParameterList" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Input Parameter List"
+
+[node name="RequestParameterValue" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Parameter Value"
+
+[node name="RequestLive2DParameterList" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Live2D Parameter List"
+
+[node name="RequestParameterCreation" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Parameter Creation"
+
+[node name="RequestParameterDeletion" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Parameter Deletion"
+
+[node name="RequestInjectParameterData" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Inject Parameter Data"
+
+[node name="RequestGetCurrentModelPhysics" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Get Current Model Physics"
+
+[node name="RequestSetCurrentModelPhysics" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Set Current Model Physics"
+
+[node name="RequestNDIConfig" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request NDI Config"
+
+[node name="RequestItemList" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Item List"
+
+[node name="RequestItemLoad" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Item Load"
+
+[node name="RequestItemUnload" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Item Unload"
+
+[node name="RequestItemAnimationControl" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Item Animation Control"
+
+[node name="RequestItemMove" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Item Move"
+
+[node name="RequestArtMeshSelection" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Art Mesh Selection"
+
+[node name="RequestVTubeStudioAPIStateBroadcast" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request VTubeStudio API State Broadcast"
+
+[node name="LogLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Log"
+
+[node name="Log" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+scroll_following = true
+
+[connection signal="client_response" from="GDVtubeStudio" to="." method="_on_gd_vtube_studio_server_response"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestAPIState" to="." method="_on_request_api_state_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestAuthenticationToken" to="." method="_on_request_authentication_token_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestAuthentication" to="." method="_on_request_authentication_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestVTSFolderInfo" to="." method="_on_request_vts_folder_info_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestCurrentModel" to="." method="_on_request_current_model_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestAvailableModels" to="." method="_on_request_available_models_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestModelLoad" to="." method="_on_request_model_load_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestMoveModel" to="." method="_on_request_move_model_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestHotkeysInCurrentModel" to="." method="_on_request_hotkeys_in_current_model_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestHotkeyTrigger" to="." method="_on_request_hotkey_trigger_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestExpressionState" to="." method="_on_request_expression_state_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestExpressionActivation" to="." method="_on_request_expression_activation_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestArtMeshList" to="." method="_on_request_art_mesh_list_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestColorTint" to="." method="_on_request_color_tint_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestSceneColorOverlayInfo" to="." method="_on_request_scene_color_overlay_info_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestFaceFound" to="." method="_on_request_face_found_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestInputParameterList" to="." method="_on_request_input_parameter_list_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestParameterValue" to="." method="_on_request_parameter_value_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestLive2DParameterList" to="." method="_on_request_live2d_parameter_list_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestParameterCreation" to="." method="_on_request_parameter_creation_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestParameterDeletion" to="." method="_on_request_parameter_deletion_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestInjectParameterData" to="." method="_on_request_inject_parameter_data_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestGetCurrentModelPhysics" to="." method="_on_request_get_current_model_physics_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestSetCurrentModelPhysics" to="." method="_on_request_set_current_model_physics_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestNDIConfig" to="." method="_on_request_ndi_config_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestItemList" to="." method="_on_request_item_list_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestItemLoad" to="." method="_on_request_item_load_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestItemUnload" to="." method="_on_request_item_unload_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestItemAnimationControl" to="." method="_on_request_item_animation_control_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestItemMove" to="." method="_on_request_item_move_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestArtMeshSelection" to="." method="_on_request_art_mesh_selection_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestVTubeStudioAPIStateBroadcast" to="." method="_on_request_vtubestudio_api_state_broadcast_pressed"]

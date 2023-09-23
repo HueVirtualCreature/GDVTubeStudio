@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcdkeb27i4anu"]
+
+[ext_resource type="Script" path="res://src/gd_vtube_studio.gd" id="1_n5xix"]
+[ext_resource type="PackedScene" uid="uid://dpjkqwxf8hcdr" path="res://src/references/WebSocketClient.tscn" id="2_cw1s5"]
+
+[node name="GDVtubeStudio" type="Node"]
+script = ExtResource("1_n5xix")
+
+[node name="WebSocketClient" parent="." instance=ExtResource("2_cw1s5")]
