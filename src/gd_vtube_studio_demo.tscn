@@ -164,7 +164,9 @@ text = "Log"
 [node name="Log" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 2
 scroll_following = true
+selection_enabled = true
 
 [connection signal="client_response" from="GDVtubeStudio" to="." method="_on_gd_vtube_studio_server_response"]
 [connection signal="pressed" from="VBoxContainer/ControlContainer/RequestAPIState" to="." method="_on_request_api_state_pressed"]

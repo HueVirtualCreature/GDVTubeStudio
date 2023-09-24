@@ -1,14 +1,36 @@
 extends Node
+var authentication_token: String = "";
 
 func _ready():
-	$GDVtubeStudio.start();
+	#This is an example of how one might load an existing authentication token
+	#for VTubeStudio, from a prior session
+	#This saves you the trouble of needing to ask for a new token each time
+	if (FileAccess.file_exists("user://GDVTS_demo.dat")):
+		var file = FileAccess.open("user://GDVTS_demo.dat", FileAccess.READ)
+		var content = file.get_as_text()
+		file.close();
+		if (content != null && content != ""):
+			$GDVtubeStudio.authentication_token = content;
+	$GDVtubeStudio.start(true);
 	return;
 
 func _on_gd_vtube_studio_server_response(message):
 	if (message is Dictionary):
 		$VBoxContainer/Log.append_text("\n"+ "[color=#00FF00]" + _format_dict(message) + "[/color]");
-		return;
-	$VBoxContainer/Log.add_text("\n"+str(message));
+	else:
+		$VBoxContainer/Log.add_text("\n"+str(message));
+	
+	if (message is Dictionary):
+		match (message.messageType):
+			#This is an example of how one might save the authentication token,
+			#once it has been retrieved from VTubeStudio
+			ResponseTypes.AuthenticationTokenResponse:
+				if (message.data.authenticationToken):
+					authentication_token = message.data.authenticationToken;
+					$GDVtubeStudio.authentication_token = authentication_token;
+					var file = FileAccess.open("user://GDVTS_demo.dat", FileAccess.WRITE)
+					file.store_string(authentication_token);
+					file.close()
 	return;
 	
 func _on_request_api_state_pressed():
@@ -36,15 +58,19 @@ func _on_request_available_models_pressed():
 	return
 
 func _on_request_model_load_pressed():
-	$GDVtubeStudio.request_model_load()
+	var request = RequestTypes.ModelLoadRequestArguments;
+	request.modelID = "17feb73471fe4601b06e48ee2add1fe3";
+	$GDVtubeStudio.request_model_load(request)
 	return
 
 func _on_request_move_model_pressed():
-	$GDVtubeStudio.request_move_model()
+	var request = RequestTypes.MoveModelRequestArguments;
+	$GDVtubeStudio.request_move_model(request);
 	return
 
 func _on_request_hotkeys_in_current_model_pressed():
-	$GDVtubeStudio.request_hotkeys_in_current_model()
+	var request = RequestTypes.HotkeysInCurrentModelRequestArguments;
+	$GDVtubeStudio.request_hotkeys_in_current_model(request)
 	return
 
 func _on_request_hotkey_trigger_pressed():

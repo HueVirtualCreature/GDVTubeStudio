@@ -4,19 +4,18 @@ extends Node
 @export var app_name: String = "GDVtubeStudio";
 @export var app_base64_image: String = "";
 @export var server_address = "ws://127.0.0.1:8001";
-var authentication_token: String = "";
+@export var authentication_token: String = "";
 
 @onready var _client = $WebSocketClient;
 
 signal client_response(message);
 
-func start(should_connect: bool = false):
+var _auto_connect: bool = false;
+
+func start(_should_auto_connect = false):
 	#Start the Client
 	_initialize_websocket_client();
-	return;
-
-func start_connection():
-	request_authentication_token();
+	_auto_connect = _should_auto_connect;
 	return;
 	
 func request_authentication_token():
@@ -61,59 +60,67 @@ func request_available_models():
 	send_request(request)
 	return
 
-func request_model_load():
+func request_model_load(arguments):
 	client_response.emit(_log("Requesting model load"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ModelLoadRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_move_model():
+func request_move_model(arguments):
 	client_response.emit(_log("Requesting move model"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.MoveModelRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_hotkeys_in_current_model():
+func request_hotkeys_in_current_model(arguments):
 	client_response.emit(_log("Requesting hotkeys in current model"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.HotkeysInCurrentModelRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_hotkey_trigger():
+func request_hotkey_trigger(arguments):
 	client_response.emit(_log("Requesting hotkey trigger"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.HotkeyTriggerRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_expression_state():
+func request_expression_state(arguments):
 	client_response.emit(_log("Requesting expression state"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ExpressionStateRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_expression_activation():
+func request_expression_activation(arguments):
 	client_response.emit(_log("Requesting expression activation"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ExpressionActivationRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_art_mesh_list():
+func request_art_mesh_list(arguments):
 	client_response.emit(_log("Requesting art mesh list"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ArtMeshListRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_color_tint():
+func request_color_tint(arguments):
 	client_response.emit(_log("Requesting color tint"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ColorTintRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
@@ -138,10 +145,11 @@ func request_input_parameter_list():
 	send_request(request)
 	return
 
-func request_parameter_value():
+func request_parameter_value(arguments):
 	client_response.emit(_log("Requesting parameter value"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ParameterValueRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
@@ -152,24 +160,27 @@ func request_live2d_parameter_list():
 	send_request(request)
 	return
 
-func request_parameter_creation():
+func request_parameter_creation(arguments):
 	client_response.emit(_log("Requesting parameter creation"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ParameterCreationRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_parameter_deletion():
+func request_parameter_deletion(arguments):
 	client_response.emit(_log("Requesting parameter deletion"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ParameterDeletionRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_inject_parameter_data():
+func request_inject_parameter_data(arguments):
 	client_response.emit(_log("Requesting inject parameter data"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.InjectParameterDataRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
@@ -180,59 +191,67 @@ func request_get_current_model_physics():
 	send_request(request)
 	return
 
-func request_set_current_model_physics():
+func request_set_current_model_physics(arguments):
 	client_response.emit(_log("Requesting set current model physics"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.SetCurrentModelPhysicsRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_ndi_config():
+func request_ndi_config(arguments):
 	client_response.emit(_log("Requesting NDI config"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.NDIConfigRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_item_list():
+func request_item_list(arguments):
 	client_response.emit(_log("Requesting item list"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ItemListRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_item_load():
+func request_item_load(arguments):
 	client_response.emit(_log("Requesting item load"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ItemLoadRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_item_unload():
+func request_item_unload(arguments):
 	client_response.emit(_log("Requesting item unload"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ItemUnloadRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_item_animation_control():
+func request_item_animation_control(arguments):
 	client_response.emit(_log("Requesting item animation control"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ItemAnimationControlRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_item_move():
+func request_item_move(arguments):
 	client_response.emit(_log("Requesting item move"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ItemMoveRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
-func request_art_mesh_selection():
+func request_art_mesh_selection(arguments):
 	client_response.emit(_log("Requesting art mesh selection"))
 	var request = _get_base_request_model()
 	request.messageType = RequestTypes.ArtMeshSelectionRequest
+	request.data.merge(arguments, true);
 	send_request(request)
 	return
 
@@ -271,19 +290,20 @@ func _web_socket_closed():
 	
 func _web_socket_connected(message):
 	client_response.emit(_log("Response > Client connected (" + message + ")"));
+	
+	if (_auto_connect == true):
+		request_authentication();
 	return;
 	
 func _web_socket_on_data_recieved(response):
 	var responseData = JSON.parse_string(response);
-	client_response.emit(responseData.data);
+	client_response.emit(responseData);
 	match (responseData.messageType):
 		ResponseTypes.APIError:
 			return;
 		ResponseTypes.APIStateResponse:
 			return;
 		ResponseTypes.AuthenticationTokenResponse:
-			if (responseData.data.authenticationToken != null):
-				authentication_token = responseData.data.authenticationToken;
 			return;
 		ResponseTypes.AuthenticationResponse:
 			return;
