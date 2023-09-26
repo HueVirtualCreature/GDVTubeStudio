@@ -11,7 +11,7 @@ The function, start(), by itself, just spins up a WebsocketPeer.
 If you decide to enable auto-connect, then make sure you have supplied an authentication token to GDVTubeStudio, first.
 
 ```gdscript
-var some_token = "123412341324134134" #It is up to your implemntation to determine how to save and retrieve existing tokens. Please refer to the demo app for an example.
+var some_token = "123412341324134134" #It is up to your implementation to determine how to save and retrieve existing tokens. Please refer to the demo app for an example.
 $GDVtubeStudio.authentication_token = some_token;
 
 # Start GDVTubeStudio client
@@ -78,7 +78,7 @@ GDVtubeStudio.request_current_model()
 None of the functions return a value. If the API returns a response, it will be returned with the signal "client_response"
 ```gdscript
 ...
-GDVtubeStudio.connected.client_response(_on_gd_vtube_studio_server_response);
+GDVtubeStudio.client_response.connect(_on_gd_vtube_studio_server_response);
 ...
 
 func _on_gd_vtube_studio_server_response(message):
