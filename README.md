@@ -11,7 +11,9 @@ The function, start(), by itself, just spins up a WebsocketPeer.
 If you decide to enable auto-connect, then make sure you have supplied an authentication token to GDVTubeStudio, first.
 
 ```gdscript
-var some_token = "123412341324134134" #It is up to your implementation to determine how to save and retrieve existing tokens. Please refer to the demo app for an example.
+#It is up to your implementation to determine how to save and 
+#retrieve existing tokens. Please refer to the demo app for an example.
+var some_token = "123412341324134134"
 $GDVtubeStudio.authentication_token = some_token;
 
 # Start GDVTubeStudio client
@@ -25,6 +27,7 @@ GDVtubeStudio.start(should_auto_connect)
 
 ```gdscript
 # Request authentication token
+#This function will automatically assign a value to $GDVtubeStudio.authentication_token
 GDVtubeStudio.request_authentication_token()
 
 # Request authentication session
@@ -33,38 +36,38 @@ GDVtubeStudio.request_authentication()
 
 ## Available Functions
 
-Here's a list of available functions in GDVTubeStudio:
+Here's a list of available functions in GDVTubeStudio and references to the Denchisoft API Documentation. Please refer to their documenation for more information about each request type:
 
-- `request_api_state()`: Request VTubeStudio API state.
-- `request_vts_folder_info()`: Request VTubeStudio folder information.
-- `request_current_model()`: Request the current model.
-- `request_available_models()`: Request available models.
-- `request_model_load(arguments)`: Request model load with optional arguments.
-- `request_move_model(arguments)`: Request moving a model with optional arguments.
-- `request_hotkeys_in_current_model(arguments)`: Request hotkeys in the current model with optional arguments.
-- `request_hotkey_trigger(arguments)`: Request hotkey trigger with optional arguments.
-- `request_expression_state(arguments)`: Request expression state with optional arguments.
-- `request_expression_activation(arguments)`: Request expression activation with optional arguments.
-- `request_art_mesh_list(arguments)`: Request art mesh list with optional arguments.
-- `request_color_tint(arguments)`: Request color tint with optional arguments.
-- `request_scene_color_overlay_info()`: Request scene color overlay information.
-- `request_face_found()`: Request face found information.
-- `request_input_parameter_list()`: Request input parameter list.
-- `request_parameter_value(arguments)`: Request parameter value with optional arguments.
-- `request_live2d_parameter_list()`: Request Live2D parameter list.
-- `request_parameter_creation(arguments)`: Request parameter creation with optional arguments.
-- `request_parameter_deletion(arguments)`: Request parameter deletion with optional arguments.
-- `request_inject_parameter_data(arguments)`: Request injecting parameter data with optional arguments.
-- `request_get_current_model_physics()`: Request getting current model physics.
-- `request_set_current_model_physics(arguments)`: Request setting current model physics with optional arguments.
-- `request_ndi_config(arguments)`: Request NDI config with optional arguments.
-- `request_item_list(arguments)`: Request item list with optional arguments.
-- `request_item_load(arguments)`: Request item load with optional arguments.
-- `request_item_unload(arguments)`: Request item unload with optional arguments.
-- `request_item_animation_control(arguments)`: Request item animation control with optional arguments.
-- `request_item_move(arguments)`: Request moving an item with optional arguments.
-- `request_art_mesh_selection(arguments)`: Request art mesh selection with optional arguments.
-- `request_vtubestudio_api_state_broadcast()`: Request VTubeStudio API state broadcast.
+- `request_api_state()`: https://github.com/DenchiSoft/VTubeStudio#api-details
+- `request_vts_folder_info()`: https://github.com/DenchiSoft/VTubeStudio#getting-list-of-vts-folders
+- `request_current_model()`: https://github.com/DenchiSoft/VTubeStudio#getting-the-currently-loaded-model
+- `request_available_models()`: https://github.com/DenchiSoft/VTubeStudio#getting-a-list-of-available-vts-models
+- `request_model_load(arguments)`: https://github.com/DenchiSoft/VTubeStudio#loading-a-vts-model-by-its-id
+- `request_move_model(arguments)`: https://github.com/DenchiSoft/VTubeStudio#moving-the-currently-loaded-vts-model
+- `request_hotkeys_in_current_model(arguments)`: https://github.com/DenchiSoft/VTubeStudio#requesting-list-of-hotkeys-available-in-current-or-other-vts-model
+- `request_hotkey_trigger(arguments)`: https://github.com/DenchiSoft/VTubeStudio#requesting-execution-of-hotkeys
+- `request_expression_state(arguments)`: https://github.com/DenchiSoft/VTubeStudio#requesting-current-expression-state-list
+- `request_expression_activation(arguments)`: https://github.com/DenchiSoft/VTubeStudio#requesting-activation-or-deactivation-of-expressions
+- `request_art_mesh_list(arguments)`: https://github.com/DenchiSoft/VTubeStudio#requesting-list-of-artmeshes-in-current-model
+- `request_color_tint(arguments)`: https://github.com/DenchiSoft/VTubeStudio#tint-artmeshes-with-color
+- `request_scene_color_overlay_info()`: https://github.com/DenchiSoft/VTubeStudio#getting-scene-lighting-overlay-color
+- `request_face_found()`: https://github.com/DenchiSoft/VTubeStudio#checking-if-face-is-currently-found-by-tracker
+- `request_input_parameter_list()`: https://github.com/DenchiSoft/VTubeStudio#requesting-list-of-available-tracking-parameters
+- `request_parameter_value(arguments)`: https://github.com/DenchiSoft/VTubeStudio#get-the-value-for-one-specific-parameter-default-or-custom
+- `request_live2d_parameter_list()`: https://github.com/DenchiSoft/VTubeStudio#get-the-value-for-all-live2d-parameters-in-the-current-model
+- `request_parameter_creation(arguments)`: https://github.com/DenchiSoft/VTubeStudio#adding-new-tracking-parameters-custom-parameters
+- `request_parameter_deletion(arguments)`: https://github.com/DenchiSoft/VTubeStudio#delete-custom-parameters
+- `request_inject_parameter_data(arguments)`: https://github.com/DenchiSoft/VTubeStudio#feeding-in-data-for-default-or-custom-parameters
+- `request_get_current_model_physics()`: https://github.com/DenchiSoft/VTubeStudio#getting-physics-settings-of-currently-loaded-vts-model
+- `request_set_current_model_physics(arguments)`: https://github.com/DenchiSoft/VTubeStudio#overriding-physics-settings-of-currently-loaded-vts-model
+- `request_ndi_config(arguments)`: https://github.com/DenchiSoft/VTubeStudio#get-and-set-ndi-settings
+- `request_item_list(arguments)`: https://github.com/DenchiSoft/VTubeStudio#requesting-list-of-available-items-or-items-in-scene
+- `request_item_load(arguments)`: https://github.com/DenchiSoft/VTubeStudio#loading-item-into-the-scene
+- `request_item_unload(arguments)`: https://github.com/DenchiSoft/VTubeStudio#removing-item-from-the-scene
+- `request_item_animation_control(arguments)`: https://github.com/DenchiSoft/VTubeStudio#controling-items-and-item-animations
+- `request_item_move(arguments)`: https://github.com/DenchiSoft/VTubeStudio#moving-items-in-the-scene
+- `request_art_mesh_selection(arguments)`: https://github.com/DenchiSoft/VTubeStudio#asking-user-to-select-artmeshes
+- `request_vtubestudio_api_state_broadcast()`: https://github.com/DenchiSoft/VTubeStudio#api-server-discovery-udp
 
 ## Usage
 
