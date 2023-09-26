@@ -265,6 +265,12 @@ func request_vtubestudio_api_state_broadcast():
 func send_request(request):
 	if (authentication_token != null && authentication_token != ""):
 		request.data.authenticationToken = authentication_token;
+		
+	#Sanitize Request by removing blank, null props
+	for key in request.data.keys():
+		if (_isInvalid(request.data[key]) == true):
+			request.data.erase(key);
+			
 	var json_string = JSON.stringify(request);
 	_client.send(json_string);
 	return;
@@ -382,3 +388,9 @@ func _get_base_request_model():
 
 func _log(message):
 	return Time.get_datetime_string_from_system() + " - " + message;
+
+func _isInvalid(input) -> bool:
+	if input == null: return true;
+	if input is String && (input.lstrip(" ").rstrip(" ").length() == 0): return true;
+	if input is int && input <= 0: return true;
+	return false;

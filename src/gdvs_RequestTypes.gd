@@ -37,99 +37,99 @@ var VTubeStudioAPIStateBroadcast = "VTubeStudioAPIStateBroadcast"
 var AuthenticationRequestArguments: Dictionary: 
 	get: 
 		return {
-			"authenticationToken": "adcd-123-ef09-some-token-string-abcd"
+			"authenticationToken": null
 		}
 var ModelLoadRequestArguments: Dictionary: 
 	get: 
 		return {
-			"modelID": "UniqueIDOfModelToLoad"
+			"modelID": null
 		}
 var MoveModelRequestArguments: Dictionary: 
 	get: 
 		return {
-		"timeInSeconds": 0.2,
-		"valuesAreRelativeToModel": false,
-		"positionX": 0.1,
-		"positionY": -0.7,
-		"rotation": 16.3,
-		"size": -22.5
+		"timeInSeconds": null,
+		"valuesAreRelativeToModel": null,
+		"positionX": null,
+		"positionY": null,
+		"rotation": null,
+		"size": null
 	}
 var HotkeysInCurrentModelRequestArguments: Dictionary: 
 	get: 
 		return {
-		"modelID": "Optional_UniqueIDOfModel",
-		"live2DItemFileName": "Optional_Live2DItemFileName"
+		"modelID": null,
+		"live2DItemFileName": null
 	}
 var HotkeyTriggerRequestArguments: Dictionary: 
 	get: 
 		return {
-		"hotkeyID": "HotkeyNameOrUniqueIdOfHotkeyToExecute",
-		"itemInstanceID": "Optional_ItemInstanceIdOfLive2DItemToTriggerThisHotkeyFor"
+		"hotkeyID": null,
+		"itemInstanceID": null
 	}
 var ExpressionStateRequestArguments: Dictionary: 
 	get: 
 		return {
-		"details": true,
-		"expressionFile": "myExpression_optional_1.exp3.json",
+		"details": null,
+		"expressionFile": null
 	}
 var ExpressionActivationRequestArguments: Dictionary: 
 	get: 
 		return {
-		"expressionFile": "myExpression_1.exp3.json",
-		"active": true
+		"expressionFile": null,
+		"active": null
 	}
 var ColorTintRequestArguments: Dictionary: 
 	get: 
 		return {
 		"colorTint": {
-			"colorR": 255,
-			"colorG": 150,
-			"colorB": 0,
-			"colorA": 255,
-			"mixWithSceneLightingColor": 1
+			"colorR": null,
+			"colorG": null,
+			"colorB": null,
+			"colorA": null,
+			"mixWithSceneLightingColor": null
 		},
 		"artMeshMatcher": {
-			"tintAll": false,
-			"artMeshNumber": [1, 3, 5],
-			"nameExact": ["eye_white_left", "eye_white_right"],
-			"nameContains": ["mouth"],
-			"tagExact": [],
-			"tagContains": ["MyTag"]
+			"tintAll": null,
+			"artMeshNumber": null,
+			"nameExact": null,
+			"nameContains": null,
+			"tagExact": null,
+			"tagContains": null
 		}
 	}
 var ParameterValueRequestArguments: Dictionary: 
 	get: 
 		return {
-		"name": "MyCustomParamName1"
+		"name": null
 	}
 var ParameterCreationRequestArguments: Dictionary: 
 	get: 
 		return {
-		"parameterName": "MyNewParamName",
-		"explanation": "This is my new parameter.",
-		"min": -50,
-		"max": 50,
-		"defaultValue": 10
+		"parameterName": null,
+		"explanation": null,
+		"min": null,
+		"max": null,
+		"defaultValue": null
 	}
 var ParameterDeletionRequestArguments: Dictionary: 
 	get: 
 		return {
-		"parameterName": "MyNewParamName"
+		"parameterName": null
 	}
 var InjectParameterDataRequestArguments: Dictionary: 
 	get: 
 		return {
-		"faceFound": false,
-		"mode": "set",
+		"faceFound": null,
+		"mode": null,
 		"parameterValues": [
 			{
-				"id": "FaceAngleX",
-				"value": 12.31
+				"id": null,
+				"value": null
 			},
 			{
-				"id": "MyNewParamName",
-				"weight": 0.8,
-				"value": 0.7
+				"id": null,
+				"weight": null,
+				"value": null
 			}
 		]
 	}
@@ -138,126 +138,124 @@ var SetCurrentModelPhysicsRequestArguments: Dictionary:
 		return {
 		"strengthOverrides": [
 			{
-				"id": "PhysicsSetting1",
-				"value": 1.5,
-				"setBaseValue": false,
-				"overrideSeconds": 2
+				"id": null,
+				"value": null,
+				"setBaseValue": null,
+				"overrideSeconds": null
 			}
 		],
 		"windOverrides": [
 			{
-				"id": "",
-				"value": 85,
-				"setBaseValue": true,
-				"overrideSeconds": 5
+				"id": null,
+				"value": null,
+				"setBaseValue": null,
+				"overrideSeconds": null
 			}
 		]
 	}
 var NDIConfigRequestArguments: Dictionary: 
 	get: 
 		return {
-		"setNewConfig": true,
-		"ndiActive": true,
-		"useNDI5": true,
-		"useCustomResolution": true,
-		"customWidthNDI": 1024,
-		"customHeightNDI": 512
+		"setNewConfig": null,
+		"ndiActive": null,
+		"useNDI5": null,
+		"useCustomResolution": null,
+		"customWidthNDI": null,
+		"customHeightNDI": null
 	}
 var ItemListRequestArguments: Dictionary: 
 	get: 
 		return {
-		"includeAvailableSpots": true,
-		"includeItemInstancesInScene": true,
-		"includeAvailableItemFiles": false,
-		"onlyItemsWithFileName": "OPTIONAL_my_item_filename.png",
-		"onlyItemsWithInstanceID": "OPTIONAL_InstanceIdOfItemInScene"
+		"includeAvailableSpots": null,
+		"includeItemInstancesInScene": null,
+		"includeAvailableItemFiles": null,
+		"onlyItemsWithFileName": null,
+		"onlyItemsWithInstanceID": null
 	}
 var ItemLoadRequestArguments: Dictionary: 
 	get: 
 		return {
-		"fileName": "some_item_name.jpg",
-		"positionX": 0,
-		"positionY": 0.5,
-		"size": 0.33,
-		"rotation": 90,
-		"fadeTime": 0.5,
-		"order": 4,
-		"failIfOrderTaken": false,
-		"smoothing": 0,
-		"censored": false,
-		"flipped": false,
-		"locked": false,
-		"unloadWhenPluginDisconnects": true
+		"fileName": null,
+		"positionX": null,
+		"positionY": null,
+		"size": null,
+		"rotation": null,
+		"fadeTime": null,
+		"order": null,
+		"failIfOrderTaken": null,
+		"smoothing": null,
+		"censored": null,
+		"flipped": null,
+		"locked": null,
+		"unloadWhenPluginDisconnects": null
 	}
 var ItemUnloadRequestArguments: Dictionary: 
 	get: 
 		return {
-		"unloadAllInScene": false,
-		"unloadAllLoadedByThisPlugin": false,
-		"allowUnloadingItemsLoadedByUserOrOtherPlugins": true,
-		"instanceIDs":
-		[
-			"SomeInstanceIdOfItemToUnload", "SomeOtherInstanceIdOfItemToUnload"
-		],
-		"fileNames":
-		[
-			"UnloadAllItemInstancesWithThisFileName", "SomeOtherFileName"
-		]
+		"unloadAllInScene": null,
+		"unloadAllLoadedByThisPlugin": null,
+		"allowUnloadingItemsLoadedByUserOrOtherPlugins": null,
+		"instanceIDs": null, #Array
+		"fileNames": null
+#		[
+#			"UnloadAllItemInstancesWithThisFileName", "SomeOtherFileName"
+#		]
 	}
 var ItemAnimationControlRequestArguments: Dictionary: 
 	get: 
 		return {
-		"itemInstanceID": "ItemInstanceId",
-		"framerate": 12,
-		"frame": 3,
-		"brightness": 1,
-		"opacity": 1,
-		"setAutoStopFrames": true,
-		"autoStopFrames": [0, 7, 26],
-		"setAnimationPlayState": true,
-		"animationPlayState": true
+		"itemInstanceID": null,
+		"framerate": null,
+		"frame": null,
+		"brightness": null,
+		"opacity": null,
+		"setAutoStopFrames": null,
+		"autoStopFrames": null, #Array
+		"setAnimationPlayState": null,
+		"animationPlayState": null
 	}
 var ItemMoveRequestArguments: Dictionary: 
 	get: 
 		return {
-		"itemsToMove":
-		[
-			{
-				"itemInstanceID": "ItemInstanceId",
-				"timeInSeconds": 1,
-				"fadeMode": "easeOut",
-				"positionX": 0.2,
-				"positionY": -0.8,
-				"size": 0.6,
-				"rotation": 180,
-				"order": -1000,
-				"setFlip": true,
-				"flip": false,
-				"userCanStop": true
-			},
-			{
-				"itemInstanceID": "SomeOther_ItemInstanceId",
-				"timeInSeconds": 0.5,
-				"fadeMode": "zip",
-				"positionX": 1,
-				"positionY": 1,
-				"size": 0.3,
-				"rotation": 0,
-				"order": 25,
-				"setFlip": false,
-				"flip": false,
-				"userCanStop": false
-			}
-		]
+		"itemsToMove": null
+#		[
+#			{
+#				"itemInstanceID": "ItemInstanceId",
+#				"timeInSeconds": 1,
+#				"fadeMode": "easeOut",
+#				"positionX": 0.2,
+#				"positionY": -0.8,
+#				"size": 0.6,
+#				"rotation": 180,
+#				"order": -1000,
+#				"setFlip": true,
+#				"flip": false,
+#				"userCanStop": true
+#			},
+#			{
+#				"itemInstanceID": "SomeOther_ItemInstanceId",
+#				"timeInSeconds": 0.5,
+#				"fadeMode": "zip",
+#				"positionX": 1,
+#				"positionY": 1,
+#				"size": 0.3,
+#				"rotation": 0,
+#				"order": 25,
+#				"setFlip": false,
+#				"flip": false,
+#				"userCanStop": false
+#			}
+#		]
 	}
 var ArtMeshSelectionRequestArguments: Dictionary: 
 	get: 
 		return {
-		"textOverride": "This text is shown over the ArtMesh selection list.",
-		"helpOverride": "This text is shown when the user presses the ? button.",
-		"requestedArtMeshCount": 5,
-		"activeArtMeshes": [
-			"D_BODY_00",
-			"D_ARM_R_05"
-		]
+		"textOverride": null,
+		"helpOverride": null,
+		"requestedArtMeshCount": null,
+		"activeArtMeshes": null
+#		[
+#			"D_BODY_00",
+#			"D_ARM_R_05"
+#		]
 	}
