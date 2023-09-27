@@ -33,3 +33,14 @@ var ItemUnloadResponse = "ItemUnloadResponse"
 var ItemAnimationControlResponse = "ItemAnimationControlResponse"
 var ItemMoveResponse = "ItemMoveResponse"
 var ArtMeshSelectionResponse = "ArtMeshSelectionResponse"
+
+#events
+var TestEvent = "TestEvent";
+var ModelLoadedEvent = "ModelLoadedEvent"
+var TrackingStatusChangedEvent = "TrackingStatusChangedEvent"
+var BackgroundChangedEvent = "BackgroundChangedEvent"
+var ModelConfigChangedEvent = "ModelConfigChangedEvent"
+var ModelMovedEvent = "ModelMovedEvent"
+var ModelOutlineEvent = "ModelOutlineEvent"
+var HotkeyTriggeredEvent = "HotkeyTriggeredEvent"
+var ModelAnimationEvent = "ModelAnimationEvent"

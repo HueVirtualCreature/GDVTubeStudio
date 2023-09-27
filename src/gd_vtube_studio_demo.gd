@@ -164,6 +164,13 @@ func _on_request_art_mesh_selection_pressed():
 func _on_request_vtubestudio_api_state_broadcast_pressed():
 	$GDVtubeStudio.request_vtubestudio_api_state_broadcast()
 	return
+
+func _on_request_event_subscription_pressed():
+	var request = RequestTypes.EventSubscriptionRequestArguments;
+	request.eventName = "ModelMovedEvent"
+	request.subscribe = true
+	$GDVtubeStudio.request_event_subscription(request)
+	return
 	
 func _format_dict(dict, indent_level = 0):
 	var formatted_str = ""

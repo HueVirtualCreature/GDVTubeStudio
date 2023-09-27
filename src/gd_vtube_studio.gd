@@ -262,6 +262,14 @@ func request_vtubestudio_api_state_broadcast():
 	send_request(request)
 	return
 	
+func request_event_subscription(arguments):
+	client_response.emit(_log("Requesting Event Subscription"))
+	var request = _get_base_request_model()
+	request.messageType = RequestTypes.EventSubscriptionRequest
+	request.data.merge(arguments, true);
+	send_request(request)
+	return
+		
 func send_request(request):
 	if (authentication_token != null && authentication_token != ""):
 		request.data.authenticationToken = authentication_token;

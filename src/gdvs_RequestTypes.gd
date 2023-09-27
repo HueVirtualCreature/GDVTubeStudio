@@ -32,6 +32,7 @@ var ItemAnimationControlRequest = "ItemAnimationControlRequest"
 var ItemMoveRequest = "ItemMoveRequest"
 var ArtMeshSelectionRequest = "ArtMeshSelectionRequest"
 var VTubeStudioAPIStateBroadcast = "VTubeStudioAPIStateBroadcast"
+var EventSubscriptionRequest = "EventSubscriptionRequest"
 
 
 var AuthenticationRequestArguments: Dictionary: 
@@ -258,4 +259,21 @@ var ArtMeshSelectionRequestArguments: Dictionary:
 #			"D_BODY_00",
 #			"D_ARM_R_05"
 #		]
+	}
+
+#TestEvent
+#ModelLoadedEvent
+#TrackingStatusChangedEvent
+#BackgroundChangedEvent
+#ModelConfigChangedEvent
+#ModelMovedEvent
+#ModelOutlineEvent
+#HotkeyTriggeredEvent
+#ModelAnimationEvent
+var EventSubscriptionRequestArguments: Dictionary: 
+	get: 
+		return {
+		"eventName": null,
+		"subscribe": null,
+		"config": null# {}
 	}
