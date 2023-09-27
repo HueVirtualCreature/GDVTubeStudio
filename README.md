@@ -69,6 +69,34 @@ Here's a list of available functions in GDVTubeStudio and references to the Denc
 - `request_art_mesh_selection(arguments)`: https://github.com/DenchiSoft/VTubeStudio#asking-user-to-select-artmeshes
 - `request_vtubestudio_api_state_broadcast()`: https://github.com/DenchiSoft/VTubeStudio#api-server-discovery-udp
 
+## Event Subscription
+You can utilize the event system in VTubeStudio by calling
+- `request_event_subscription(arguments)`: https://github.com/DenchiSoft/VTubeStudio#event-api
+
+```gdscript
+# Example usage of request_event_subscription
+var request = RequestTypes.EventSubscriptionRequestArguments;
+request.eventName = "ModelMovedEvent"
+request.subscribe = true
+$GDVtubeStudio.request_event_subscription(request)
+```
+
+Afterwards, GDVtubeStudio will start receiving events via client_response signal.
+Please refer to the model_move demo scene for an example of how you would use this.
+
+Valid eventName values are:
+- TestEvent
+- ModelLoadedEvent
+- TrackingStatusChangedEvent
+- BackgroundChangedEvent
+- ModelConfigChangedEvent
+- ModelMovedEvent
+- ModelOutlineEvent
+- HotkeyTriggeredEvent
+- ModelAnimationEvent
+
+Please refer to Denchisoft's documentation on how to configure some of these requests: https://github.com/DenchiSoft/VTubeStudio#event-api
+
 ## Usage
 
 You can call these functions in your Godot project by including the GDVtubeStudio node and invoking the respective functions as needed.
