@@ -157,6 +157,10 @@ text = "Request Art Mesh Selection"
 layout_mode = 2
 text = "Request VTubeStudio API State Broadcast"
 
+[node name="RequestEventSubscription" type="Button" parent="VBoxContainer/ControlContainer"]
+layout_mode = 2
+text = "Request Event Subscription"
+
 [node name="LogLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Log"
@@ -201,3 +205,4 @@ selection_enabled = true
 [connection signal="pressed" from="VBoxContainer/ControlContainer/RequestItemMove" to="." method="_on_request_item_move_pressed"]
 [connection signal="pressed" from="VBoxContainer/ControlContainer/RequestArtMeshSelection" to="." method="_on_request_art_mesh_selection_pressed"]
 [connection signal="pressed" from="VBoxContainer/ControlContainer/RequestVTubeStudioAPIStateBroadcast" to="." method="_on_request_vtubestudio_api_state_broadcast_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlContainer/RequestEventSubscription" to="." method="_on_request_event_subscription_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bixbb484wyfqk"]
+
+[ext_resource type="Script" path="res://src/examples/event_sub/model_move/model_move.gd" id="1_fownj"]
+[ext_resource type="PackedScene" uid="uid://dcdkeb27i4anu" path="res://src/gd_vtube_studio.tscn" id="2_050oy"]
+[ext_resource type="Texture2D" uid="uid://ju2qrry2a5no" path="res://src/examples/event_sub/model_move/assets/recticle.png" id="3_w7sot"]
+
+[node name="example_event_sub_model_move" type="Node2D"]
+script = ExtResource("1_fownj")
+
+[node name="GDVtubeStudio" parent="." instance=ExtResource("2_050oy")]
+
+[node name="Recticle" type="Sprite2D" parent="."]
+position = Vector2(613, 317)
+scale = Vector2(0.120117, 0.120117)
+texture = ExtResource("3_w7sot")
